@@ -1,0 +1,12 @@
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Service.deps.json
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Service.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Service.pdb
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.csproj.AssemblyReference.cache
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.AssemblyInfoInputs.cache
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.AssemblyInfo.cs
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.csproj.CoreCompileInputs.cache
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\refint\ShoppingApi.Service.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.pdb
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ref\ShoppingApi.Service.dll

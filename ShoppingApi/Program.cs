@@ -1,6 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using ShoppingApi.Data.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ShoppingApiDbContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("ShoppingApiDatabase")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
