@@ -1,6 +1,8 @@
-﻿namespace ShoppingApi.Dto.Dtos
+﻿using ShoppingApi.Base.Dto;
+
+namespace ShoppingApi.Dto.Dtos
 {
-    public class ProductDto
+    public class ProductDto : BaseDto
     {
         public string Amount { get; set; }
         public int ShoppingListId { get; set; }
