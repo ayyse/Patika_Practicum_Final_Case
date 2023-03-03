@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "ShoppingApi.Base/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/ShoppingApi.Base.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShoppingApi.Base.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ShoppingApi.Base/1.0.0": {
+      "type": "project",
+      "path": "../ShoppingApi.Base/ShoppingApi.Base.csproj",
+      "msbuildProject": "../ShoppingApi.Base/ShoppingApi.Base.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "ShoppingApi.Base >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\ayse\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ayse\\Documents\\GitHub\\Patika_Practicum_Final_Case\\ShoppingApi.Base\\ShoppingApi.Base.csproj": {
+              "projectPath": "C:\\Users\\ayse\\Documents\\GitHub\\Patika_Practicum_Final_Case\\ShoppingApi.Base\\ShoppingApi.Base.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

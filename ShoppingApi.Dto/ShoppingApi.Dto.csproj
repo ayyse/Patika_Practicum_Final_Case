@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingApi.Base\ShoppingApi.Base.csproj" />
+  </ItemGroup>
+
 </Project>
