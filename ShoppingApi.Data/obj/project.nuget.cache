@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "UPZSsTRBgkkeKhbXy4r6vSSnA2VC56w2Gq7yXTWM3hSJx1Pw8m2fIKNh1YsPLabmsYdmOiyGxyHXwICDZ48rJw==",
+  "dgSpecHash": "nvHBP6pbuCstZvMRjX+KPslkFnPxlBvt6+mAvjROA8J+JFDu9FZhCbdiLgZBjF5YuCw/5E3yzveRJ97egX7DLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ayse\\Documents\\GitHub\\Patika_Practicum_Final_Case\\ShoppingApi.Data\\ShoppingApi.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ayse\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ayse\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\ayse\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ayse\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.3\\microsoft.entityframeworkcore.7.0.3.nupkg.sha512",
     "C:\\Users\\ayse\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.3\\microsoft.entityframeworkcore.abstractions.7.0.3.nupkg.sha512",
     "C:\\Users\\ayse\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.3\\microsoft.entityframeworkcore.analyzers.7.0.3.nupkg.sha512",

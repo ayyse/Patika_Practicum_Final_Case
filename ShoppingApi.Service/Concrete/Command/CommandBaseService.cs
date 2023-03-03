@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using ShoppingApi.Data.Repository.Abstract;
-using ShoppingApi.Data.Repository.Concrete;
 using ShoppingApi.Data.UnitOfWork.Abstract;
-using ShoppingApi.Data.UnitOfWork.Concrete;
 using ShoppingApi.Service.Abstract.Command;
 
 namespace ShoppingApi.Service.Concrete.Command
@@ -35,7 +33,7 @@ namespace ShoppingApi.Service.Concrete.Command
             await _unitOfWork.CompleteAsync();
         }
 
-        public async void UpdateAsync(int id)
+        public async void UpdateAsync(int id, Dto updateResource)
         {
             var entity = await _genericRepository.GetByIdAsync(id);
 

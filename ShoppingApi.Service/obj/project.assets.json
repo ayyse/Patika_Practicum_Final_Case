@@ -297,6 +297,9 @@
       "ShoppingApi.Base/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1"
+        },
         "compile": {
           "bin/placeholder/ShoppingApi.Base.dll": {}
         },

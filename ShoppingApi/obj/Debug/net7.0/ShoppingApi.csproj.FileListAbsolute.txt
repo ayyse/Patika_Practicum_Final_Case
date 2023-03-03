@@ -44,3 +44,9 @@ C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug
 C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug\net7.0\ShoppingApi.Data.dll
 C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug\net7.0\ShoppingApi.Data.pdb
 C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug\net7.0\ShoppingApi.Base.pdb
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\obj\Debug\net7.0\ShoppingApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug\net7.0\ShoppingApi.Dto.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug\net7.0\ShoppingApi.Service.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug\net7.0\ShoppingApi.Service.pdb
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi\bin\Debug\net7.0\ShoppingApi.Dto.pdb

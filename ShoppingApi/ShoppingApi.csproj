@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -17,12 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Application\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ShoppingApi.Data\ShoppingApi.Data.csproj" />
+    <ProjectReference Include="..\ShoppingApi.Service\ShoppingApi.Service.csproj" />
   </ItemGroup>
 
 </Project>

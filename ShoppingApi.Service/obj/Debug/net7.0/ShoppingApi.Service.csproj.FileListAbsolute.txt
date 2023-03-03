@@ -10,3 +10,10 @@ C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\o
 C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\refint\ShoppingApi.Service.dll
 C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.pdb
 C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ref\ShoppingApi.Service.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Base.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Data.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Dto.dll
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Data.pdb
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Dto.pdb
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\bin\Debug\net7.0\ShoppingApi.Base.pdb
+C:\Users\ayse\Documents\GitHub\Patika_Practicum_Final_Case\ShoppingApi.Service\obj\Debug\net7.0\ShoppingApi.Service.csproj.CopyComplete

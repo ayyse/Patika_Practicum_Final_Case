@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "N9vmxsa6Xe9lBXCQPNagtaf+cnQBVo5VNcc59hT+YNUn6saDAgfqxAjgXAk8gWwImkcNcZyzGTxwZgOIwa817g==",
+  "dgSpecHash": "gAiTGxBEhku1mSdyV+/JE4jrUOlmHrUKg5X8/rNPa/l1LS9BsM/CU1MnbOt4PG9idLodQSOOI3ZtL0u7nv9ohA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ayse\\Documents\\GitHub\\Patika_Practicum_Final_Case\\ShoppingApi.Dto\\ShoppingApi.Dto.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ayse\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\ayse\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
