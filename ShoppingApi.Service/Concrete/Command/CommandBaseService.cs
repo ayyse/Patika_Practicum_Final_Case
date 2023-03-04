@@ -37,7 +37,9 @@ namespace ShoppingApi.Service.Concrete.Command
         {
             var entity = await _genericRepository.GetByIdAsync(id);
 
-            _genericRepository.Update(entity);
+            var mapped = _mapper.Map(updateResource, entity);
+
+            _genericRepository.Update(mapped);
             await _unitOfWork.CompleteAsync();
         }
     }
