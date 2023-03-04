@@ -8,9 +8,9 @@ namespace ShoppingApi.Service.Mapper
     {
         public MappingProfile()
         {
-            CreateMap<Category, CategoryDto>();
-            CreateMap<ProductDto, Product>();
-            CreateMap<ShoppingListDto, ShoppingList>();
+            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<ProductDto, Product>().ReverseMap();
+            CreateMap<ShoppingListDto, ShoppingList>().ReverseMap();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace ShoppingApi.Data.Repository.Concrete
             return await _entities.AsNoTracking().ToListAsync();
         }
 
-        public virtual async Task<Entity> GetByIdAsync(int entityId)
+        public async Task<Entity> GetByIdAsync(int entityId)
         {
             return await _entities.FindAsync(entityId);
         }
@@ -33,11 +33,6 @@ namespace ShoppingApi.Data.Repository.Concrete
         public void Update(Entity entity)
         {
             _entities.Update(entity);
-        }
-
-        public IEnumerable<Entity> Where(Expression<Func<Entity, bool>> where)
-        {
-            return _entities.Where(where).AsQueryable();
         }
 
         public void RemoveAsync(Entity entity)

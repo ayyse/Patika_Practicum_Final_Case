@@ -5,5 +5,6 @@ namespace ShoppingApi.Service.Abstract.Command
 {
     public interface ICommandCategoryService : ICommandBaseService<CategoryDto, Category>
     {
+
     }
 }

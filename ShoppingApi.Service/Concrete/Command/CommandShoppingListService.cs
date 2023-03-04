@@ -9,7 +9,7 @@ namespace ShoppingApi.Service.Concrete.Command
 {
     public class CommandShoppingListService : CommandBaseService<ShoppingListDto, ShoppingList>, ICommandShoppingListService
     {
-        public CommandShoppingListService(IGenericRepository<ShoppingList> genericRepository, IMapper mapper, IUnitOfWork unitOfWork) : base(genericRepository, mapper, unitOfWork)
+        public CommandShoppingListService(IShoppingListRepository genericRepository, IMapper mapper, IUnitOfWork unitOfWork) : base(genericRepository, mapper, unitOfWork)
         {
         }
     }

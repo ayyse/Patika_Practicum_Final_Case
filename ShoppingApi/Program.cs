@@ -27,7 +27,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IGenericRepository<Category>, GenericRepository<Category>>();
 builder.Services.AddScoped<IGenericRepository<Product>, GenericRepository<Product>>();
-builder.Services.AddScoped<IGenericRepository<ShoppingList>, GenericRepository<ShoppingList>>();
+builder.Services.AddScoped<IShoppingListRepository, ShoppingListRepository>();
 
 builder.Services.AddScoped<ICommandCategoryService, CommandCategoryService>();
 builder.Services.AddScoped<ICommandProductService, CommandProductService>();

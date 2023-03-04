@@ -7,6 +7,5 @@
         Task InsertAsync(TEntity entity);
         void Update(TEntity entity);
         void RemoveAsync(TEntity entity);
-        IEnumerable<TEntity> Where(System.Linq.Expressions.Expression<Func<TEntity, bool>> where);
     }
 }
