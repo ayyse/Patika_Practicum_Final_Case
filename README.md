@@ -45,3 +45,9 @@ Burada gelen access token bilgisini kopyalayıp aşağıdaki authorization alan�
   <img src="https://github.com/ayyse/Patika_Practicum_Final_Case/blob/main/ScreenShots/ShoppingList.jpeg">
   <img src="https://github.com/ayyse/Patika_Practicum_Final_Case/blob/main/ScreenShots/User.jpeg">
 </p>
+
+
+## Veritabanı bağlantıları
+<p align="center">
+  <img src="https://github.com/ayyse/Patika_Practicum_Final_Case/blob/main/ScreenShots/Schema.png">
+</p>
