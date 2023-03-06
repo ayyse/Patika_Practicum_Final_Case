@@ -17,9 +17,12 @@ namespace ShoppingApi.Service.Concrete.Command
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
-        public virtual async Task InsertAsync(Dto insertResource)
+        public async Task InsertAsync(Dto insertResource)
         {
             var entity = _mapper.Map<Entity>(insertResource);
+
+            if (entity is not null)
+                throw new InvalidOperationException("Entity already exists");
 
             await _genericRepository.InsertAsync(entity);
             await _unitOfWork.CompleteAsync();
@@ -29,6 +32,9 @@ namespace ShoppingApi.Service.Concrete.Command
         {
             var entity = await _genericRepository.GetByIdAsync(id);
 
+            if (entity is null)
+                throw new InvalidOperationException("Entity is null");
+
             _genericRepository.RemoveAsync(entity);
             await _unitOfWork.CompleteAsync();
         }
@@ -36,6 +42,9 @@ namespace ShoppingApi.Service.Concrete.Command
         public virtual async Task UpdateAsync(int id, Dto updateResource)
         {
             var entity = await _genericRepository.GetByIdAsync(id);
+
+            if (entity is null)
+                throw new InvalidOperationException("Entity is null");
 
             _genericRepository.Update(entity);
             await _unitOfWork.CompleteAsync();

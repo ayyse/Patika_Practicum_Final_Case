@@ -19,15 +19,17 @@ namespace ShoppingApi.Service.Concrete.Query
         {
             var entity = await _genericRepository.GetAllAsync();
             var result = _mapper.Map<IEnumerable<Dto>>(entity);
-
             return result;
         }
 
         public async Task<Dto> GetByIdAsync(int id)
         {
             var entity = await _genericRepository.GetByIdAsync(id);
-            var result = _mapper.Map<Dto>(entity);
 
+            if (entity is null)
+                throw new InvalidOperationException("Entity is null");
+
+            var result = _mapper.Map<Dto>(entity);
             return result;
         }
     }
