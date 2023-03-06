@@ -36,7 +36,7 @@ namespace ShoppingApi.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("ShoppingApi.Data.Model.Product", b =>
@@ -62,7 +62,7 @@ namespace ShoppingApi.Data.Migrations
 
                     b.HasIndex("ShoppingListId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("ShoppingApi.Data.Model.ShoppingList", b =>
@@ -89,15 +89,63 @@ namespace ShoppingApi.Data.Migrations
                     b.Property<bool>("IsComplete")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ShoppingLists");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ShoppingLists", (string)null);
+                });
+
+            modelBuilder.Entity("ShoppingApi.Data.Model.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("LastActivity")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("ShoppingApi.Data.Model.Product", b =>
@@ -113,13 +161,21 @@ namespace ShoppingApi.Data.Migrations
 
             modelBuilder.Entity("ShoppingApi.Data.Model.ShoppingList", b =>
                 {
-                    b.HasOne("ShoppingApi.Data.Model.Category", "Categories")
+                    b.HasOne("ShoppingApi.Data.Model.Category", "Category")
                         .WithMany("ShoppingLists")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Categories");
+                    b.HasOne("ShoppingApi.Data.Model.User", "User")
+                        .WithMany("ShoppingLists")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ShoppingApi.Data.Model.Category", b =>
@@ -130,6 +186,11 @@ namespace ShoppingApi.Data.Migrations
             modelBuilder.Entity("ShoppingApi.Data.Model.ShoppingList", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("ShoppingApi.Data.Model.User", b =>
+                {
+                    b.Navigation("ShoppingLists");
                 });
 #pragma warning restore 612, 618
         }

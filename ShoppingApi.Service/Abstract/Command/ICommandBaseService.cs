@@ -2,8 +2,8 @@
 {
     public interface ICommandBaseService<Dto, Entity>
     {
-        void InsertAsync(Dto insertResource);
-        void UpdateAsync(int id, Dto updateResource);
-        void RemoveAsync(int id);
+        Task InsertAsync(Dto insertResource);
+        Task UpdateAsync(int id, Dto updateResource);
+        Task RemoveAsync(int id);
     }
 }

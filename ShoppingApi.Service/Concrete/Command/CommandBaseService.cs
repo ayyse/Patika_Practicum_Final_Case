@@ -17,7 +17,7 @@ namespace ShoppingApi.Service.Concrete.Command
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
-        public async void InsertAsync(Dto insertResource)
+        public virtual async Task InsertAsync(Dto insertResource)
         {
             var entity = _mapper.Map<Entity>(insertResource);
 
@@ -25,7 +25,7 @@ namespace ShoppingApi.Service.Concrete.Command
             await _unitOfWork.CompleteAsync();
         }
 
-        public async void RemoveAsync(int id)
+        public async Task RemoveAsync(int id)
         {
             var entity = await _genericRepository.GetByIdAsync(id);
 
@@ -33,13 +33,11 @@ namespace ShoppingApi.Service.Concrete.Command
             await _unitOfWork.CompleteAsync();
         }
 
-        public async void UpdateAsync(int id, Dto updateResource)
+        public virtual async Task UpdateAsync(int id, Dto updateResource)
         {
             var entity = await _genericRepository.GetByIdAsync(id);
 
-            var mapped = _mapper.Map(updateResource, entity);
-
-            _genericRepository.Update(mapped);
+            _genericRepository.Update(entity);
             await _unitOfWork.CompleteAsync();
         }
     }

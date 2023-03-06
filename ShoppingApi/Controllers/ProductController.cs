@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShoppingApi.Dto.Dtos;
 using ShoppingApi.Service.Abstract.Command;
 using ShoppingApi.Service.Abstract.Query;
@@ -18,6 +19,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var products = await _queryProductService.GetAllAsync();
@@ -25,6 +27,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byId/{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             var productById = await _queryProductService.GetByIdAsync(id);
@@ -32,6 +35,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byShoppingListId/{shoppingListId}")]
+        [Authorize]
         public async Task<IActionResult> GetByShoppingListId(int shoppingListId)
         {
             var productsByShoppingList = await _queryProductService.GetByShoppingListIdAsync(shoppingListId);
@@ -39,21 +43,24 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] ProductDto productDto)
+        [Authorize]
+        public async Task<IActionResult> Create([FromBody] ProductDto productDto)
         {
             _commandProductService.InsertAsync(productDto);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] ProductDto productDto)
+        [Authorize]
+        public async Task<IActionResult> Update(int id, [FromBody] ProductDto productDto)
         {
             _commandProductService.UpdateAsync(id, productDto);
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
         {
             _commandProductService.RemoveAsync(id);
             return Ok();

@@ -10,7 +10,9 @@ namespace ShoppingApi.Service.Mapper
         {
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<ProductDto, Product>().ReverseMap();
-            CreateMap<ShoppingListDto, ShoppingList>().ReverseMap();
+            CreateMap<ShoppingListDto, ShoppingList>().ReverseMap()
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category.Name));
+            CreateMap<UserDto, User>().ReverseMap();
         }
     }
 }

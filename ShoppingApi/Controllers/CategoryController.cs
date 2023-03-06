@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using ShoppingApi.Base.Types;
 using ShoppingApi.Dto.Dtos;
 using ShoppingApi.Service.Abstract.Command;
 using ShoppingApi.Service.Abstract.Query;
@@ -18,6 +20,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = $"{Role.Viewer}")]
         public async Task<IActionResult> GetAll()
         {
             var categories = await _queryCategoryService.GetAllAsync();
@@ -25,6 +28,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             var category = await _queryCategoryService.GetByIdAsync(id);
@@ -32,6 +36,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create([FromBody] CategoryDto categoryDto)
         {
             _commandCategoryService.InsertAsync(categoryDto);
@@ -39,6 +44,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public IActionResult Update(int id, [FromBody] CategoryDto categoryDto)
         {
             _commandCategoryService.UpdateAsync(id, categoryDto);
@@ -46,6 +52,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _commandCategoryService.RemoveAsync(id);

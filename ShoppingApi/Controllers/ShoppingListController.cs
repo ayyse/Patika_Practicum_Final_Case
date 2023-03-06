@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShoppingApi.Dto.Dtos;
 using ShoppingApi.Service.Abstract.Command;
 using ShoppingApi.Service.Abstract.Query;
-using ShoppingApi.Service.Concrete.Command;
-using ShoppingApi.Service.Concrete.Query;
 
 namespace ShoppingApi.Controllers
 {
@@ -20,6 +19,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var shoppingLists = await _queryShoppingListService.GetAllAsync();
@@ -27,6 +27,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byId/{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             var shoppingListById = await _queryShoppingListService.GetByIdAsync(id);
@@ -34,6 +35,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byCategoryId/{categoryId}")]
+        [Authorize]
         public async Task<IActionResult> GetByCategoryId(int categoryId)
         {
             var shoppingListByCategory = await _queryShoppingListService.GetByCategoryIdAsync(categoryId);
@@ -41,6 +43,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byCreateDate/{createDate}")]
+        [Authorize]
         public async Task<IActionResult> GetByCreateDate(DateTime createDate)
         {
             var shoppingListByCreateDate = await _queryShoppingListService.GetByCreateDateAsync(createDate);
@@ -48,6 +51,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byCompleteDate/{completeDate}")]
+        [Authorize]
         public async Task<IActionResult> GetByCompleteDate(DateTime completeDate)
         {
             var shoppingListByCompleteDate = await _queryShoppingListService.GetByCompleteDateAsync(completeDate);
@@ -55,6 +59,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create([FromBody] ShoppingListDto shoppingListDto)
         {
             _commandShoppingListService.InsertAsync(shoppingListDto);
@@ -62,6 +67,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public IActionResult Update(int id, [FromBody] ShoppingListDto shoppingListDto)
         {
             _commandShoppingListService.UpdateAsync(id, shoppingListDto);
@@ -69,6 +75,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _commandShoppingListService.RemoveAsync(id);

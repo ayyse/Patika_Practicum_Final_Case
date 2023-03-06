@@ -13,10 +13,22 @@ namespace ShoppingApi.Data.Repository.Concrete
             _context = context;
         }
 
+        public override async Task<IEnumerable<ShoppingList>> GetAllAsync()
+        {
+            var shoppingLists = await _context.ShoppingLists.Include(x => x.Category).ToListAsync();
+            return shoppingLists;
+        }
+
         public async Task<IEnumerable<ShoppingList>> GetByCategoryIdAsync(int categoryId)
         {
             var shoppingListByCategoryId = await _context.ShoppingLists.Where(x => x.CategoryId == categoryId).ToListAsync();
             return shoppingListByCategoryId;
+        }
+
+        public async Task<IEnumerable<ShoppingList>> GetByUserIdAsync(int userId)
+        {
+            var shoppingListByUserId = await _context.ShoppingLists.Where(x => x.UserId == userId).ToListAsync();
+            return shoppingListByUserId;
         }
 
         public async Task<IEnumerable<ShoppingList>> GetByCreateDateAsync(DateTime createDate)
@@ -29,6 +41,6 @@ namespace ShoppingApi.Data.Repository.Concrete
         {
             var shoppingListByCompleteDate = await _context.ShoppingLists.Where(x => x.CompleteDate == completeDate).ToListAsync();
             return shoppingListByCompleteDate;
-        }
+        }  
     }
 }

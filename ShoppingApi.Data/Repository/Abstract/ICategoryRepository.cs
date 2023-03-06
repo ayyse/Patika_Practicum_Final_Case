@@ -4,6 +4,5 @@ namespace ShoppingApi.Data.Repository.Abstract
 {
     public interface ICategoryRepository : IGenericRepository<Category>
     {
-
     }
 }

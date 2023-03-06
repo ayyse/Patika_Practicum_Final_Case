@@ -14,7 +14,7 @@ namespace ShoppingApi.Data.UnitOfWork.Concrete
         public IGenericRepository<Category> CategoryRepository { get; private set; }
         public IGenericRepository<Product> ProductRepository { get; private set; }
         public IGenericRepository<ShoppingList> ShoppingListRepository { get; private set; }
-
+        public IGenericRepository<User> UserRepository { get; private set; }
 
         public UnitOfWork(ShoppingApiDbContext context)
         {
@@ -23,6 +23,7 @@ namespace ShoppingApi.Data.UnitOfWork.Concrete
             CategoryRepository = new GenericRepository<Category>(_context);
             ProductRepository = new GenericRepository<Product>(_context);
             ShoppingListRepository = new GenericRepository<ShoppingList>(_context);
+            UserRepository = new GenericRepository<User>(_context);
         }
 
 
