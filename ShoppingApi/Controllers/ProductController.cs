@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ShoppingApi.Base.Types;
 using ShoppingApi.Dto.Dtos;
 using ShoppingApi.Service.Abstract.Command;
 using ShoppingApi.Service.Abstract.Query;
@@ -19,7 +20,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}")]
         public async Task<IActionResult> GetAll()
         {
             var products = await _queryProductService.GetAllAsync();
@@ -27,7 +28,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byId/{id}")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}")]
         public async Task<IActionResult> GetById(int id)
         {
             var productById = await _queryProductService.GetByIdAsync(id);
@@ -35,34 +36,34 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byShoppingListId/{shoppingListId}")]
-        [Authorize]
-        public async Task<IActionResult> GetByShoppingListId(int shoppingListId)
+        [Authorize(Roles = $"{Role.Admin}, {Role.Viewer}")]
+        public async Task<IActionResult> GetProductsByShoppingListId(int shoppingListId)
         {
             var productsByShoppingList = await _queryProductService.GetByShoppingListIdAsync(shoppingListId);
             return Ok(productsByShoppingList);
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Viewer}")]
         public async Task<IActionResult> Create([FromBody] ProductDto productDto)
         {
-            _commandProductService.InsertAsync(productDto);
+            await _commandProductService.InsertAsync(productDto);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Viewer}")]
         public async Task<IActionResult> Update(int id, [FromBody] ProductDto productDto)
         {
-            _commandProductService.UpdateAsync(id, productDto);
+            await _commandProductService.UpdateAsync(id, productDto);
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Viewer}")]
         public async Task<IActionResult> Delete(int id)
         {
-            _commandProductService.RemoveAsync(id);
+            await _commandProductService.RemoveAsync(id);
             return Ok();
         }
     }

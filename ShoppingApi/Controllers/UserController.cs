@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using ShoppingApi.Base.Types;
 using ShoppingApi.Dto.Dtos;
 using ShoppingApi.Service.Abstract.Command;
 using ShoppingApi.Service.Abstract.Query;
@@ -20,6 +22,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = $"{Role.Admin}")]
         public async Task<IActionResult> GetAll()
         {
             var users = await _queryUserService.GetAllAsync();
@@ -27,6 +30,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = $"{Role.Admin}")]
         public async Task<IActionResult> GetById(int id)
         {
             var user = await _queryUserService.GetByIdAsync(id);
@@ -34,23 +38,26 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] UserDto userDto)
+        [Authorize(Roles = $"{Role.Admin}, {Role.Viewer}")]
+        public async Task<IActionResult> Create([FromBody] UserDto userDto)
         {
-            _commandUserService.InsertAsync(userDto);
+            await _commandUserService.InsertAsync(userDto);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] UserDto userDto)
+        [Authorize(Roles = $"{Role.Admin}, {Role.Viewer}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UserDto userDto)
         {
-            _commandUserService.UpdateAsync(id, userDto);
+            await _commandUserService.UpdateAsync(id, userDto);
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [Authorize(Roles = $"{Role.Admin}, {Role.Viewer}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            _commandUserService.RemoveAsync(id);
+            await _commandUserService.RemoveAsync(id);
             return Ok();
         }
     }

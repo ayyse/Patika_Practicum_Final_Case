@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ShoppingApi.Base.Types;
 using ShoppingApi.Dto.Dtos;
 using ShoppingApi.Service.Abstract.Command;
 using ShoppingApi.Service.Abstract.Query;
@@ -19,7 +20,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}")]
         public async Task<IActionResult> GetAll()
         {
             var shoppingLists = await _queryShoppingListService.GetAllAsync();
@@ -27,7 +28,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byId/{id}")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}")]
         public async Task<IActionResult> GetById(int id)
         {
             var shoppingListById = await _queryShoppingListService.GetByIdAsync(id);
@@ -35,15 +36,23 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byCategoryId/{categoryId}")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}, {Role.Viewer}")]
         public async Task<IActionResult> GetByCategoryId(int categoryId)
         {
             var shoppingListByCategory = await _queryShoppingListService.GetByCategoryIdAsync(categoryId);
             return Ok(shoppingListByCategory);
         }
 
+        [HttpGet("byUserId/{userId}")]
+        [Authorize(Roles = $"{Role.Admin}, {Role.Viewer}")]
+        public async Task<IActionResult> GetByUserId(int userId)
+        {
+            var shoppingListByUser = await _queryShoppingListService.GetByUserIdAsync(userId);
+            return Ok(shoppingListByUser);
+        }
+
         [HttpGet("byCreateDate/{createDate}")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}, {Role.Viewer}")]
         public async Task<IActionResult> GetByCreateDate(DateTime createDate)
         {
             var shoppingListByCreateDate = await _queryShoppingListService.GetByCreateDateAsync(createDate);
@@ -51,7 +60,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("byCompleteDate/{completeDate}")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}, {Role.Viewer}")]
         public async Task<IActionResult> GetByCompleteDate(DateTime completeDate)
         {
             var shoppingListByCompleteDate = await _queryShoppingListService.GetByCompleteDateAsync(completeDate);
@@ -59,26 +68,26 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        public IActionResult Create([FromBody] ShoppingListDto shoppingListDto)
+        [Authorize(Roles = $"{Role.Viewer}")]
+        public async Task<IActionResult> Create([FromBody] ShoppingListDto shoppingListDto)
         {
-            _commandShoppingListService.InsertAsync(shoppingListDto);
+            await _commandShoppingListService.InsertAsync(shoppingListDto);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        [Authorize]
-        public IActionResult Update(int id, [FromBody] ShoppingListDto shoppingListDto)
+        [Authorize(Roles = $"{Role.Viewer}")]
+        public async Task<IActionResult> Update(int id, [FromBody] ShoppingListDto shoppingListDto)
         {
-            _commandShoppingListService.UpdateAsync(id, shoppingListDto);
+            await _commandShoppingListService.UpdateAsync(id, shoppingListDto);
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
-        public IActionResult Delete(int id)
+        [Authorize(Roles = $"{Role.Viewer}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            _commandShoppingListService.RemoveAsync(id);
+            await _commandShoppingListService.RemoveAsync(id);
             return Ok();
         }
     }

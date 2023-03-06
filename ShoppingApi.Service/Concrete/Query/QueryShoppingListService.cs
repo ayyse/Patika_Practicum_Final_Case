@@ -24,6 +24,14 @@ namespace ShoppingApi.Service.Concrete.Query
             return result;
         }
 
+        public async Task<IEnumerable<ShoppingListDto>> GetByUserIdAsync(int userId)
+        {
+            var entity = await _genericRepository.GetByUserIdAsync(userId);
+            var result = _mapper.Map<IEnumerable<ShoppingListDto>>(entity);
+
+            return result;
+        }
+
         public async Task<IEnumerable<ShoppingListDto>> GetByCreateDateAsync(DateTime createDate)
         {
             var entity = await _genericRepository.GetByCreateDateAsync(createDate);

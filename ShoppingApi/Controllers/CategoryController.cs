@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingApi.Base.Types;
 using ShoppingApi.Dto.Dtos;
+using ShoppingApi.Dto.Validators;
 using ShoppingApi.Service.Abstract.Command;
 using ShoppingApi.Service.Abstract.Query;
 
@@ -20,7 +22,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = $"{Role.Viewer}")]
+        [Authorize(Roles = $"{Role.Admin}")]
         public async Task<IActionResult> GetAll()
         {
             var categories = await _queryCategoryService.GetAllAsync();
@@ -28,7 +30,7 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}")]
         public async Task<IActionResult> GetById(int id)
         {
             var category = await _queryCategoryService.GetByIdAsync(id);
@@ -36,26 +38,27 @@ namespace ShoppingApi.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        public IActionResult Create([FromBody] CategoryDto categoryDto)
+        [Authorize(Roles = $"{Role.Viewer}")]
+        public async Task<IActionResult> Create([FromBody] CategoryDto categoryDto)
         {
-            _commandCategoryService.InsertAsync(categoryDto);
+            await _commandCategoryService.InsertAsync(categoryDto);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        [Authorize]
-        public IActionResult Update(int id, [FromBody] CategoryDto categoryDto)
+        [Authorize(Roles = $"{Role.Viewer}")]
+        public async Task<IActionResult> Update(int id, [FromBody] CategoryDto categoryDto)
         {
-            _commandCategoryService.UpdateAsync(id, categoryDto);
+            await _commandCategoryService.UpdateAsync(id, categoryDto);
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
-        public IActionResult Delete(int id)
+        [Authorize(Roles = $"{Role.Viewer}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            _commandCategoryService.RemoveAsync(id);
+            CategoryDto categoryDto = new CategoryDto();
+            await _commandCategoryService.RemoveAsync(id);
             return Ok();
         }
     }

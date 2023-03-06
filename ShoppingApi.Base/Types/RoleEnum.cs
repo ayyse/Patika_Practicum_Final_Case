@@ -13,7 +13,7 @@ namespace ShoppingApi.Base.Types
 
     public class Role
     {
-        public const string Admin = "admin";
-        public const string Viewer = "viewer";
+        public const string Admin = "Admin";
+        public const string Viewer = "Viewer";
     }
 }
