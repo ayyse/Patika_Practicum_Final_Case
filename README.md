@@ -31,7 +31,7 @@ Projemi Visual Studio 2022 .Net 7 ile geliştirdim. Veritabanı için PostgreSQL
   <img src="https://github.com/ayyse/Patika_Practicum_Final_Case/blob/main/ScreenShots/Token-Response.jpeg">
 </p>
 
-Burada gelen access token bilgisini kopyalayıp aşağıdaki authorization alanına kopyalarsanız rolünüze göre metotlara erişim sağlayabilirsiniz.
+Burada gelen access token bilgisini kopyalayıp aşağıdaki authorization alanına yapıştırırsanız rolünüze göre metotlara erişim sağlayabilirsiniz.
 
 <p align="center">
   <img src="https://github.com/ayyse/Patika_Practicum_Final_Case/blob/main/ScreenShots/Authorization.jpeg">
